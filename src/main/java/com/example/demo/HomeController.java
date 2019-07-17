@@ -24,12 +24,12 @@ public class HomeController {
 
     @GetMapping("/add")
     public String notesForm(Model model){
-        model.addAttribute("note", new Notes ());
+        model.addAttribute("note", new Note ());
         return "notesform";
     }
     @PostMapping("/process")
-    public String processForm(@Valid Notes note,
-                              BindingResult result){
+    public String processForm(@Valid Note note,
+                              BindingResult result, Model model){
         if (result.hasErrors()){
             return "notesform";
         }
